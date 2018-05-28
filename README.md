@@ -1,2 +1,2 @@
 # root-eslint-plugin
-In-house eslint rules.
+Custom rules for Root Insurance
