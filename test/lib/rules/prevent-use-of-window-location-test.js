@@ -19,7 +19,7 @@ ruleTester.run('prevent-window-location-assignment', rule, {
         return;
       }`,
       filename: 'components/some-component.js',
-      errors: [{ message: 'Use props.location instead by wrapping component with a router.' }]
+      errors: [{ message: 'Use props.location instead by wrapping component with a router' }]
     },
   ],
 });

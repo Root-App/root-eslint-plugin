@@ -17,6 +17,12 @@ ruleTester.run('preceded-by-await', rule, {
              });`,
       options: [{ functionNames: ['wait', 'waitForElement'] }],
     },
+    {
+      code: `describe("some test", async () => {
+               await pollForCondition(() => {});
+             });`,
+      options: [{ functionNames: ['pollForCondition'] }],
+    },
   ],
   invalid: [
     {
@@ -32,6 +38,13 @@ ruleTester.run('preceded-by-await', rule, {
              });`,
       errors: [{ message: "waitForElement must be prefixed w/ 'await'" }],
       options: [{ functionNames: ['wait', 'waitForElement'] }],
+    },
+    {
+      code: `describe("some test", async () => {
+              pollForCondition(() => {});
+            });`,
+      errors: [{ message: "pollForCondition must be prefixed w/ 'await'" }],
+      options: [{ functionNames: ['pollForCondition'] }],
     },
   ],
 });
