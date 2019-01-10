@@ -1,5 +1,5 @@
 {
-  "name": "root-eslint-plugin",
+  "name": "eslint-config-root-eslint-plugin",
   "version": "0.0.3",
   "description": "Custom rules for Root Insurance",
   "keywords": [
