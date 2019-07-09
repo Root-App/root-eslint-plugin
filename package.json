@@ -15,17 +15,17 @@
     "test:single": "jest"
   },
   "dependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.10.0",
-    "eslint-plugin-jest": "^22.1.2",
-    "eslint-plugin-mocha": "^5.2.0",
-    "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-react-native": "^3.1.0",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-plugin-jest": "^22.7.2",
+    "eslint-plugin-mocha": "^5.3.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-native": "^3.7.0",
     "eslint-plugin-sort-imports-es6-autofix": "0.4.0",
-    "requireindex": "~1.1.0"
+    "requireindex": "~1.2.0"
   },
   "devDependencies": {
-    "jest": "^24.7.0"
+    "jest": "^24.8.0"
   },
   "engines": {
     "node": ">=0.10.0"
