@@ -2,7 +2,10 @@ const rule = require('../../../lib/rules/prevent-relative-paths');
 const RuleTester = require('eslint').RuleTester;
 
 const ruleTester = new RuleTester();
-const parserOptions = { sourceType: 'module' }
+const parserOptions = { 
+  sourceType: 'module',
+  ecmaVersion: 2015
+}
 const error = {
 	message: 'Use absolute paths for file imports',
 	type: 'ImportDeclaration',
