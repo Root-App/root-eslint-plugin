@@ -55,67 +55,117 @@ ruleTester.run('valid-test-filenames', rule, {
       filename: 'test/models/some-model-spec.js',
       options: [{ testSuffix: '-spec.js' }],
     },
+    {
+      code: 'describe("Component", function() {});',
+      filename: 'test/components/some-component.js',
+      options: [{ testSuffix: '-test.js', whitelist: ['test/components/some-component.js'] }],
+    },
+    {
+      code: 'describe("Component", function() { context ("when foo", function() { it("bars", function() {}) }) });',
+      filename: 'test/components/some-component.js',
+      options: [{ testSuffix: '-test.js', whitelist: ['test/components/some-component.js'] }],
+    },
+    {
+      code: 'it("does a thing", function() {});',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-test.js', whitelist: ['test/models/some-model.js'] }],
+    },
+    {
+      code: 'itSlowly("does a thing", function() {});',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-test.js', whitelist: ['test/models/some-model.js'] }],
+    },
+    {
+      code: 'context("when doing a thing", function() {});',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-test.js', whitelist: ['test/models/some-model.js'] }],
+    },
+    {
+      code: 'describe("Component", function() {});',
+      filename: 'test/components/some-component.js',
+      options: [{ testSuffix: '-spec.js', whitelist: ['test/components/some-component.js'] }],
+    },
+    {
+      code: 'describe("Component", function() { context ("when foo", function() { it("bars", function() {}) }) });',
+      filename: 'test/components/some-component.js',
+      options: [{ testSuffix: '-spec.js', whitelist: ['test/components/some-component.js'] }],
+    },
+    {
+      code: 'it("does a thing", function() {});',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-spec.js', whitelist: ['test/models/some-model.js'] }],
+    },
+    {
+      code: 'itSlowly("does a thing", function() {});',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-spec.js', whitelist: ['test/models/some-model.js'] }],
+    },
+    {
+      code: 'context("when doing a thing", function() {});',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-spec.js', whitelist: ['test/models/some-model.js'] }],
+    },
   ],
   invalid: [
     {
       code: 'describe("Component", function() {});',
       filename: 'test/components/some-component.js',
       options: [{ testSuffix: '-test.js' }],
-      errors: [{ message: 'Test filenames must end with -test.js' }]
+      errors: [{ message: 'Test filenames must end with -test.js' }],
     },
     {
       code: 'describe("Component", function() { context ("when foo", function() { it("bars", function() {}) }) });',
       filename: 'test/components/some-component.js',
       options: [{ testSuffix: '-test.js' }],
-      errors: [{ message: 'Test filenames must end with -test.js' }]
+      errors: [{ message: 'Test filenames must end with -test.js' }],
     },
     {
       code: 'it("does a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-test.js' }],
-      errors: [{ message: 'Test filenames must end with -test.js' }]
+      errors: [{ message: 'Test filenames must end with -test.js' }],
     },
     {
       code: 'itSlowly("does a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-test.js' }],
-      errors: [{ message: 'Test filenames must end with -test.js' }]
+      errors: [{ message: 'Test filenames must end with -test.js' }],
     },
     {
       code: 'context("when doing a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-test.js' }],
-      errors: [{ message: 'Test filenames must end with -test.js' }]
+      errors: [{ message: 'Test filenames must end with -test.js' }],
     },
     {
       code: 'describe("Component", function() {});',
       filename: 'test/components/some-component.js',
       options: [{ testSuffix: '-spec.js' }],
-      errors: [{ message: 'Test filenames must end with -spec.js' }]
+      errors: [{ message: 'Test filenames must end with -spec.js' }],
     },
     {
       code: 'describe("Component", function() { context ("when foo", function() { it("bars", function() {}) }) });',
       filename: 'test/components/some-component.js',
       options: [{ testSuffix: '-spec.js' }],
-      errors: [{ message: 'Test filenames must end with -spec.js' }]
+      errors: [{ message: 'Test filenames must end with -spec.js' }],
     },
     {
       code: 'it("does a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-spec.js' }],
-      errors: [{ message: 'Test filenames must end with -spec.js' }]
+      errors: [{ message: 'Test filenames must end with -spec.js' }],
     },
     {
       code: 'itSlowly("does a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-spec.js' }],
-      errors: [{ message: 'Test filenames must end with -spec.js' }]
+      errors: [{ message: 'Test filenames must end with -spec.js' }],
     },
     {
       code: 'context("when doing a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-spec.js' }],
-      errors: [{ message: 'Test filenames must end with -spec.js' }]
+      errors: [{ message: 'Test filenames must end with -spec.js' }],
     },
   ],
 });
