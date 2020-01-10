@@ -8,7 +8,14 @@ ruleTester.run('lodash-import-format', rule, {
     {
       code: "import get from 'lodash/get';",
       filename: 'tests/some-test.js',
-      options: [{ functionNames: ['wait'] }],
+    },
+    {
+      code: "import map from 'lodash/map';",
+      filename: 'tests/some-test.js',
+    },
+    {
+      code: "import first from 'lodash/first';",
+      filename: 'tests/some-test.js',
     }
   ],
   invalid: [
@@ -16,7 +23,16 @@ ruleTester.run('lodash-import-format', rule, {
       code: "import { get } from 'lodash';",
       filename: 'tests/some-test.js',
       errors: [{ message: "Use the explicit import of lodash: `import <name> from 'lodash/<name>';`" }],
-      options: [{ functionNames: ['wait'] }],
+    },
+    {
+      code: "import { map } from 'lodash';",
+      filename: 'tests/some-test.js',
+      errors: [{ message: "Use the explicit import of lodash: `import <name> from 'lodash/<name>';`" }],
+    },
+    {
+      code: "import { first } from 'lodash';",
+      filename: 'tests/some-test.js',
+      errors: [{ message: "Use the explicit import of lodash: `import <name> from 'lodash/<name>';`" }],
     },
   ],
 });
