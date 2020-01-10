@@ -15,7 +15,7 @@ ruleTester.run('lodash-import-format', rule, {
     {
       code: "import { get } from 'lodash';",
       filename: 'tests/some-test.js',
-      errors: [{ message: "Use the explicit import of lodash: `import get from 'lodash/get';" }],
+      errors: [{ message: "Use the explicit import of lodash: `import <name> from 'lodash/<name>';`" }],
       options: [{ functionNames: ['wait'] }],
     },
   ],
