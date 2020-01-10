@@ -23,10 +23,12 @@ ruleTester.run('lodash-import-format', rule, {
   invalid: [
     {
       code: "import { get } from 'lodash';",
+      output: "import get from 'lodash/get';",
       errors: [{ message:  lodashErrorMessage}],
     },
     {
       code: "import { map } from 'lodash';",
+      output: "import map from 'lodash/map';",
       errors: [{ message: lodashErrorMessage }],
     },
     {
