@@ -120,6 +120,12 @@ ruleTester.run('valid-test-filenames', rule, {
       errors: [{ message: 'Test filenames must end with -test.js' }],
     },
     {
+      code: 'describeWithThrownErrors("Component", function() { context ("when foo", function() { it("bars", function() {}) }) });',
+      filename: 'test/models/some-model.js',
+      options: [{ testSuffix: '-test.js' }],
+      errors: [{ message: 'Test filenames must end with -test.js' }],
+    },
+    {
       code: 'it("does a thing", function() {});',
       filename: 'test/models/some-model.js',
       options: [{ testSuffix: '-test.js' }],
