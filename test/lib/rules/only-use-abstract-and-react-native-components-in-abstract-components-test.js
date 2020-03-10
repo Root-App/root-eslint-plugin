@@ -74,7 +74,7 @@ ruleTester.run('only-use-abstract-and-react-native-components-in-abstract-compon
       code: `
       import { AbstractCoreText } from '@root/core-components/src/abstract/abstract-core-text';
       import { AbstractTouchableOpacity } from '@root/core-components/src/abstract/abstract-touchable-opacity';
-      import { View, ViewPropTypes } from 'react-native';
+      import { Animated, View, ViewPropTypes } from 'react-native';
 
       export const AbstractButton = forwardRef(({
         someProps
@@ -90,6 +90,29 @@ ruleTester.run('only-use-abstract-and-react-native-components-in-abstract-compon
                 {title}
               </Animated.AbstractCoreText>
             </View>
+            {leftAligned && rightIcon}
+          </AbstractTouchableOpacity>
+        );
+      });`,
+      filename,
+    },
+    {
+      code: `
+      import { AbstractCoreText } from '@root/core-components/src/abstract/abstract-core-text';
+      import { AbstractTouchableOpacity } from '@root/core-components/src/abstract/abstract-touchable-opacity';
+      import { Animated, ViewPropTypes } from 'react-native';
+
+      export const AbstractButton = forwardRef(({
+        someProps
+      }, ref,) => {
+
+        return (
+          <AbstractTouchableOpacity>
+            <Animated.View
+              textProps={textProps}
+            >
+              {title}
+            </Animated.View>
             {leftAligned && rightIcon}
           </AbstractTouchableOpacity>
         );
@@ -196,37 +219,6 @@ ruleTester.run('only-use-abstract-and-react-native-components-in-abstract-compon
       import { AbstractCoreText } from '@root/core-components/src/abstract/abstract-core-text';
       import { AbstractTouchableOpacity } from '@root/core-components/src/abstract/abstract-touchable-opacity';
       import { View, ViewPropTypes } from 'react-native';
-      import { CoreText } from 'core-text';
-
-      export const AbstractButton = forwardRef(({
-        someProps
-      }, ref,) => {
-
-        return (
-          <AbstractTouchableOpacity>
-            <View style={style}>
-              {leftIcon}
-              <AbstractCoreText
-                textProps={textProps}
-              >
-              {title}
-              <Animated.CoreText>
-              {subject}
-              </Animated.CoreText>
-              </AbstractCoreText>
-            </View>
-            {leftAligned && rightIcon}
-          </AbstractTouchableOpacity>
-        );
-      });`,
-      filename,
-      errors: [{ message }],
-    },
-    {
-      code: `
-      import { AbstractCoreText } from '@root/core-components/src/abstract/abstract-core-text';
-      import { AbstractTouchableOpacity } from '@root/core-components/src/abstract/abstract-touchable-opacity';
-      import { View, ViewPropTypes } from 'react-native';
       import { CoreText } from '@root/core-components/src/components/core-text';
 
       export const AbstractButton = forwardRef(({
@@ -248,6 +240,31 @@ ruleTester.run('only-use-abstract-and-react-native-components-in-abstract-compon
               </DynamicComponent>
               </AbstractCoreText>
             </View>
+            {leftAligned && rightIcon}
+          </AbstractTouchableOpacity>
+        );
+      });`,
+      filename,
+      errors: [{ coreComponentImportMessage }],
+    },
+    {
+      code: `
+      import { AbstractCoreText } from '@root/core-components/src/abstract/abstract-core-text';
+      import { AbstractTouchableOpacity } from '@root/core-components/src/abstract/abstract-touchable-opacity';
+      import { Animated } from 'somewhere-not-react-native';
+      import { ViewPropTypes } from 'react-native';
+
+      export const AbstractButton = forwardRef(({
+        someProps
+      }, ref,) => {
+
+        return (
+          <AbstractTouchableOpacity>
+            <Animated.View
+              textProps={textProps}
+            >
+              {title}
+            </Animated.View>
             {leftAligned && rightIcon}
           </AbstractTouchableOpacity>
         );
