@@ -13,7 +13,6 @@ const ruleTester = new RuleTester({
 
 const message = 'English customer facing copy should only contain smart quotes';
 const filename = '/modules/brand/context/strings/en_US/login.js';
-const spanishFilename = '/modules/brand/context/strings/es_US/login.js';
 
 ruleTester.run('prevent-non-smart-quotes-in-english-text', rule, {
   valid: [
@@ -24,10 +23,6 @@ ruleTester.run('prevent-non-smart-quotes-in-english-text', rule, {
     {
       code: `{ intro_text: 'It’s ‘almost’ time to drive.' }`,
       filename,
-    },
-    {
-      code: `{ intro_text: 'Es "casi" la hora de conducir.' }`,
-      filename: spanishFilename,
     },
     {
       code: `
@@ -42,6 +37,10 @@ export const login = {
     },
     {
       code: `{ intro_text: 'It’s “almost” time to drive.' }`,
+      filename,
+    },
+    {
+      code: `{ intro_text: 5 }`,
       filename,
     },
   ],
