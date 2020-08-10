@@ -1099,6 +1099,11 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
+eslint-plugin-disallow-methods@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-disallow-methods/-/eslint-plugin-disallow-methods-0.1.0.tgz#8bb47170c555bd833e89dceeb511d0a74521d4eb"
+  integrity sha1-i7RxcMVVvYM+idzutRHQp0Uh1Os=
+
 eslint-plugin-jest@^22.7.2:
   version "22.7.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.7.2.tgz#7ab118a66a34e46ae5e16a128b5d24fd28b43dca"
